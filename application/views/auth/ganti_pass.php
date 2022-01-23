@@ -19,7 +19,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/auth/css/style.css">
 
-    <title>Register</title>
+    <title>Lupa Password</title>
 </head>
 
 <body>
@@ -32,50 +32,31 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-7">
-                        <h3>Registrasi</h3>
-                        <p class="mb-4">Silahkan registrasi untuk membuat akun.</p>
-                        <form action="<?= base_url('c_auth/register_akun') ?>" method="post">
-                            <div class="form-group first">
-                                <label for="username">Nama</label>
-                                <input type="text" name="nama" class="form-control" placeholder="nama anda..." id="nama">
-                                <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group first">
-                                <label for="username">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="email anda..." id="email">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group first">
-                                <label for="username">No Telp</label>
-                                <input type="number" name="no_telp" class="form-control" placeholder="no telp anda..." id="no_telp">
-                                <?= form_error('no_telp', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group first">
-                                <label for="username">Alamat</label>
-                                <input type="text" name="alamat" class="form-control" placeholder="alamat anda..." id="alamat">
-                                <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
+                        <h3>Ganti Password</h3>
+                        <p class="mb-4"><?= $this->session->flashdata('message') ?></p>
+                        <p class="mb-4">silahkan isi password baru anda.</p>
+                        <form action="<?= base_url('c_auth/ubah_pass') ?>" method="post">
                             <div class="form-group last mb-3">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control password" placeholder="password anda..." id="password">
-                                <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <input type="password" name="password" class="form-control password" placeholder="Password Anda..." id="password">
                             </div>
+                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                             <div class="form-group last mb-3">
                                 <label for="password">Konfirmasi Password</label>
-                                <input type="password" name="kpassword" class="form-control password" placeholder="konfirmasi password..." id="password">
-                                <?= form_error('kpassword', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <input type="password" name="kpassword" class="form-control password" placeholder="Konfirmasi Password..." id="password">
                             </div>
+                            <?= form_error('kpassword', '<small class="text-danger pl-3">', '</small>'); ?>
                             <div class="d-flex mb-5 align-items-center">
                                 <label class="control control--checkbox mb-0"><span class="caption">Lihat Password</span>
                                     <input type="checkbox" class="form-checkbox" />
                                     <div class="control__indicator"></div>
                                 </label>
-                                <!-- <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> -->
+                                <!-- <span class="ml-auto"><a href="<?= base_url('c_auth/lupa_password') ?>" class="forgot-pass">Lupa Password</a></span> -->
                             </div>
 
-                            <button type="submit" class="btn btn-block btn-primary">Register</button>
+                            <button type="submit" class="btn btn-block btn-primary">Ubah Password</button>
                             <div class="text-center">
-                                <span class="ml-auto"><a href="<?= base_url('c_auth') ?>" class="forgot-pass">Sudah memiliki akun?</a></span>
+                                <span class="ml-auto"><a href="<?= base_url('c_auth') ?>" class="forgot-pass">Login</a></span>
                             </div>
                         </form>
                     </div>
