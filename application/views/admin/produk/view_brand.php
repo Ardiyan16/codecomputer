@@ -35,6 +35,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Brand</th>
+                                    <th>Logo</th>
                                     <th>Option</th>
                                 </tr>
                             </thead>
@@ -45,9 +46,10 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $brand->brand ?></td>
+                                        <td><img src="<?= base_url('assets/admin/images/logo/' . $brand->logo) ?>" width="64"></td>
                                         <td>
                                             <a href="#edit<?= $brand->id ?>" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a> |
-                                            <a href="<?= base_url('admin/c_produk/delete_brand/' . $brand->id ) ?>" onclick="return confirm('Apakah anda yakin hapus brand ini?')" class="btn btn-danger btn-sm"><i class="fa fa fa-trash"></i> Hapus</a>
+                                            <a href="<?= base_url('admin/c_produk/delete_brand/' . $brand->id) ?>" onclick="return confirm('Apakah anda yakin hapus brand ini?')" class="btn btn-danger btn-sm"><i class="fa fa fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -64,7 +66,7 @@
 <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form method="post" action="<?= base_url('admin/c_produk/save_brand') ?>">
+            <form method="post" action="<?= base_url('admin/c_produk/save_brand') ?>" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Brand</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -76,31 +78,12 @@
                         <label for="exampleInputEmail1">Nama Brand</label>
                         <input type="text" class="form-control" name="brand" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Brand...">
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<?php foreach($edit as $e) : ?>
-<div class="modal fade" id="edit<?= $e->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <form method="post" action="<?= base_url('admin/c_produk/update_brand') ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Brand</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nama Brand</label>
-                        <input type="hidden" value="<?= $e->id ?>" name="id">
-                        <input type="text" value="<?= $e->brand ?>" class="form-control" name="brand" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Brand...">
+                        <label for="exampleInputEmail1">Logo</label>
+                        <div class="custom-file">
+                            <input type="file" name="logo" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Pilih File</label>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -111,6 +94,43 @@
         </div>
     </div>
 </div>
+<?php foreach ($edit as $e) : ?>
+    <div class="modal fade" id="edit<?= $e->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form method="post" action="<?= base_url('admin/c_produk/update_brand') ?>" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Brand</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Brand</label>
+                            <input type="hidden" value="<?= $e->id ?>" name="id">
+                            <input type="text" value="<?= $e->brand ?>" class="form-control" name="brand" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Brand...">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Logo</label>
+                            <div class="custom-file">
+                                <input type="file" name="logo" class="custom-file-input" id="exampleInputFile">
+                                <input type="hidden" name="old_image" value="<?php echo $e->logo ?>" />
+                                <label class="custom-file-label" for="exampleInputFile"><?= $e->logo ?></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <img src="<?php echo base_url('assets/admin/images/logo/' . $e->logo) ?>" width="100px"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 <?php endforeach; ?>
 <script>
     <?php if ($this->session->flashdata('insert')) : ?>

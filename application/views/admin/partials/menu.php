@@ -17,7 +17,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="<?= base_url('admin/c_dashboard') ?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
@@ -25,20 +25,23 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-laptop"></i><a href="<?= base_url('admin/c_produk') ?>">Product</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="<?= base_url('admin/c_produk/brand') ?>">Brand</a></li>
-                            <li><i class="fa fa-list-alt"></i><a href="<?= base_url('admin/c_produk/kategori') ?>">Kategori</a></li>
+                            <!-- <li><i class="fa fa-list-alt"></i><a href="<?= base_url('admin/c_produk/kategori') ?>">Kategori</a></li> -->
                         </ul>
                     </li>
                     <li class="">
                         <a href="index.html"> <i class="menu-icon fa fa-user"></i>User </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Transaksi</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-handshake-o"></i>Transaksi</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Transaksi Produk</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Riwayat Transaksi Produk</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Service</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Riwayat Service</a></li>
+                            <li><i class="menu-icon fa fa-handshake-o"></i><a href="forms-basic.html">Transaksi Produk</a></li>
+                            <li><i class="menu-icon fa fa-history"></i><a href="forms-basic.html">Riwayat Transaksi Produk</a></li>
+                            <li><i class="menu-icon fa fa-wrench"></i><a href="forms-advanced.html">Service</a></li>
+                            <li><i class="menu-icon fa fa-history"></i><a href="forms-basic.html">Riwayat Service</a></li>
                         </ul>
+                    </li>
+                    <li class="">
+                        <a href="index.html"> <i class="menu-icon fa fa-money"></i>Pembayaran Offline</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -138,12 +141,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="<?= base_url() ?>assets/admin/images/admin.png" alt="User Avatar">
                         </a>
-
                         <div class="user-menu dropdown-menu">
+                            <p><?= $this->session->userdata('nama') ?></p>
                             <a class="nav-link" href="<?= base_url('c_auth/logout') ?>"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
-
                 </div>
             </div>
 

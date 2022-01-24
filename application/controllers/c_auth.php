@@ -304,6 +304,6 @@ class c_auth extends CI_Controller
 		$this->session->unset_userdata('no_telp');
 
 		$this->session->set_flashdata('logout', true);
-		redirect('c_auth');
+		redirect('c_home');
 	}
 }

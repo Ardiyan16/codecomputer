@@ -4,7 +4,8 @@
 <script src="<?= base_url() ?>assets/admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/assets/js/main.js"></script>
 
-
+<script src="<?= base_url() ?>assets/admin/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/vendors/chart.js/dist/Chart.bundle.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/assets/js/dashboard.js"></script>
 <script src="<?= base_url() ?>assets/admin/assets/js/widgets.js"></script>
@@ -41,7 +42,12 @@
         });
     })(jQuery);
 </script>
-
+<script>
+    $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+</script>
 </body>
 
 </html>
