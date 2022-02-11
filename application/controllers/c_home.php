@@ -8,11 +8,13 @@ class c_home extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->model('m_produk');
     }
 
     public function index()
     {
         $var['title'] = 'home';
+        $var['produk'] = $this->m_produk->list_produk();
         $this->load->view('user/page/home', $var);
     }
 }

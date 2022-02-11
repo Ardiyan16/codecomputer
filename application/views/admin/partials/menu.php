@@ -29,7 +29,7 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a href="index.html"> <i class="menu-icon fa fa-user"></i>User </a>
+                        <a href="<?= base_url('admin/c_admin') ?>"> <i class="menu-icon fa fa-user"></i>Pengguna </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-handshake-o"></i>Transaksi</a>
@@ -41,7 +41,7 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a href="index.html"> <i class="menu-icon fa fa-money"></i>Pembayaran Offline</a>
+                        <a href="index.html"> <i class="menu-icon fa fa-money"></i>Kasir</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

@@ -32,42 +32,20 @@
 <section class="small-banner section">
     <div class="container-fluid">
         <div class="row">
+            <?php foreach($produk as $prd) { ?>
             <!-- Single Banner  -->
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="single-banner">
-                    <img src="https://via.placeholder.com/600x370" alt="#">
+                    <img src="<?= base_url('assets/admin/images/produk/' . $prd->foto) ?>" alt="#">
                     <div class="content">
-                        <p>Man's Collectons</p>
-                        <h3>Summer travel <br> collection</h3>
-                        <a href="#">Discover Now</a>
+                        <p style="color: blue;"><?= $prd->brand ?></p>
+                        <h3 style="color: greenyellow;"><?= $prd->nama_produk ?></h3>
+                        <a href="#" style="color: blue; font-weight: bold;">Lihat Produk</a>
                     </div>
                 </div>
             </div>
             <!-- /End Single Banner  -->
-            <!-- Single Banner  -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-banner">
-                    <img src="https://via.placeholder.com/600x370" alt="#">
-                    <div class="content">
-                        <p>Bag Collectons</p>
-                        <h3>Awesome Bag <br> 2020</h3>
-                        <a href="#">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /End Single Banner  -->
-            <!-- Single Banner  -->
-            <div class="col-lg-4 col-12">
-                <div class="single-banner tab-height">
-                    <img src="https://via.placeholder.com/600x370" alt="#">
-                    <div class="content">
-                        <p>Flash Sale</p>
-                        <h3>Mid Season <br> Up to <span>40%</span> Off</h3>
-                        <a href="#">Discover Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /End Single Banner  -->
+            <?php } ?>
         </div>
     </div>
 </section>
